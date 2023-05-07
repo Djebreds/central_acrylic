@@ -1,0 +1,15 @@
+.sidebar-link:hover {
+  background-color: #3f80ea;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.link-active {
+  background-color: #3f80ea;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+  color: #fff !important;
+}
