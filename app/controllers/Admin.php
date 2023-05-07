@@ -57,7 +57,7 @@ class Admin extends Controller {
 
     public function markNotifications() {
         $data['id_staff'] = $_SESSION['id'];
-        $data['is_read'] = $_POST['is_read'];
+        $data['is_read'] = 1;
 
         $this->model('Notification')->markNotifications($data);
 
