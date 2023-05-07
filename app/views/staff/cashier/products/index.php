@@ -19,7 +19,7 @@
                         <div class="modal fade" id="addModal" tabindex="-1" aria-hidden="true" style="display: none;">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
-                                        <form action="<?= route('admin/products/create') ?>" method="POST">
+                                        <form action="<?= route('cashier/products/create') ?>" method="POST">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="title-modal">Tambah</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
