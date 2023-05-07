@@ -161,9 +161,9 @@ class Orders extends Controller {
     }
 
     public function update() {
-        if ($file = UploadFile::upload($_FILES, Validate::validates($_POST['code']), 'uploaded/design/')) {
+        if ($_FILES['file']['error'] === 4) {
             $data['code'] = Validate::validates($_POST['code']);
-            $data['design_file'] = Validate::validates($file);
+            $data['design_file'] = '';
             $data['note'] = Validate::validates($_POST['note']);
             $data['status'] = 'processing';
             $data['id_order'] = Validate::validates($_POST['id']);
@@ -185,6 +185,33 @@ class Orders extends Controller {
             if ($this->model('Order')->update($data)) {
                 Flasher::setNotyf('Order berhasil disimpan', 'success');
                 return redirectTo('admin/index');
+            }
+        } else {
+            if ($file = UploadFile::upload($_FILES, Validate::validates($_POST['code']), 'uploaded/design/')) {
+                $data['code'] = Validate::validates($_POST['code']);
+                $data['design_file'] = Validate::validates($file);
+                $data['note'] = Validate::validates($_POST['note']);
+                $data['status'] = 'processing';
+                $data['id_order'] = Validate::validates($_POST['id']);
+                $data['id_staff'] = $_SESSION['id'];
+                $data['id_process'] = 2;
+                $data['id_order_detail'] = $_POST['id_order_detail'];
+                $data['division'] = $_SESSION['division'];
+                $data['estimate_complete'] = 0;
+                $data['description'] = 'Pesanan telah diteruskan';
+    
+                $processMachines = explode(', ', $_POST['process_names']);
+                
+                foreach ($processMachines as $process) {
+                    $id_division[] = implode('', $this->model('Division')->getIDByName($this->getProcessDivision($process)));
+                }
+    
+                $data['id_division'] = implode(',', $id_division);
+    
+                if ($this->model('Order')->update($data)) {
+                    Flasher::setNotyf('Order berhasil disimpan', 'success');
+                    return redirectTo('admin/index');
+                }
             }
         }
 

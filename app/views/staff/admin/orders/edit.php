@@ -8,7 +8,7 @@
     </nav>
     <div class="d-none d-md-block">
         <div class="row position-relative g-0">
-            <?php if ($data['orders']['design_file'] == '' && $data['orders']['status'] == 'initial') { ?>
+            <?php if ($data['orders']['status'] == 'initial') { ?>
                 <form action="<?= route('admin/orders/update') ?>" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="id_order_detail" value="<?= $data['orders']['id_order_detail'] ?>">
                     <ul class="list-group list-group-horizontal" style="border-radius: 20px; width: 100%;">
@@ -71,7 +71,7 @@
                                 <dd class="col-sm-9 text-center m-5">
                                     <input type="hidden" name="id" value="<?= $data['orders']['id'] ?>">
                                     <input type="hidden" name="code" value="<?= $data['orders']['order_code'] ?>">
-                                    <input type="file" class="form-control opacity-0" name="file" id="file" multiple="false" required>
+                                    <input type="file" class="form-control opacity-0" name="file" id="file" multiple="false">
                                     <input type="hidden" name="process_names" value="<?= $data['orders']['process_names'] ?>">
                                     <div class="row">
                                         <div class="col">
@@ -169,13 +169,17 @@
                     </li>
                     <li class="list-group-item"  style="border-radius: 0 20px 20px 0;">
                         <dl class="row justify-content-center">
+                            <?php if ($data['orders']['design_file'] != '') { ?>
                             <dt class="col-sm-12"><h4 class="text-muted">Design & Edited File:</h4></dt>
-                            <dd class="col-sm-9 text-center m-5">
-                                <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                    <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
-                                    <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
-                                </a>
-                            </dd>
+                                <dd class="col-sm-9 text-center m-5">
+                                    <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
+                                        <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
+                                        <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
+                                    </a>
+                                </dd>
+                            <?php } else { ?>
+                                <dt class="col-sm-12" style="margin-left: 100px; margin-right: 100px"><h4 class="text-muted">Design & Edited File:</h4></dt>
+                            <?php }  ?>
                         </dl>
                     </li>
                 </ul>
@@ -185,6 +189,7 @@
             <?php } ?>
         </div>    
     </div>
+
     <div class="d-block d-md-none">
         <div class="row postition-relative g-0">
             <?php if ($data['orders']['design_file'] == '' && $data['orders']['status'] == 'initial') { ?>
@@ -224,7 +229,7 @@
                         <li class="list-group-item">
                             <h4 class="text-muted">Keterangan</h4>
                             <input type="hidden" name="code" value="<?= $data['orders']['order_code'] ?>">
-                            <input type="file" class="form-control opacity-0" name="file" id="file-mb" multiple="false" required>
+                            <input type="file" class="form-control opacity-0" name="file" id="file-mb" multiple="false">
                             <input type="hidden" name="process_names" value="<?= $data['orders']['process_names'] ?>">
                             <div class="row justify-content-center">
                                 <div class="col-12">
@@ -293,12 +298,14 @@
                     </li>
                     <li class="list-group-item">
                         <h4 class="text-muted">Design & Edited File</h4>
-                        <div class="text-center">
-                            <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
-                                <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
-                            </a>
-                        </div>
+                        <?php if ($data['orders']['design_file'] != '') { ?>
+                            <div class="text-center">
+                                <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
+                                    <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
+                                    <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
+                                </a>
+                            </div>
+                        <?php } ?>
                     </li>
                 </ul>
                 <div class="text-end mt-4">
@@ -309,54 +316,56 @@
     </div>
 </div>
 
-<script>
-    const inputFile = document.getElementById('file');
-    const uploadButton = document.getElementById('upload-button');
-    const fileInfo = document.getElementById('file-info');
-    const fileIcon = document.getElementById('file-icon');
-    const fileName = document.getElementById('file-name');
-    const reset = document.getElementById('reset');
+<?php if ($data['orders']['design_file'] != '') { ?>
+    <script>
+        const inputFile = document.getElementById('file');
+        const uploadButton = document.getElementById('upload-button');
+        const fileInfo = document.getElementById('file-info');
+        const fileIcon = document.getElementById('file-icon');
+        const fileName = document.getElementById('file-name');
+        const reset = document.getElementById('reset');
 
-    function upload() {
-        inputFile.click();
-    }
+        function upload() {
+            inputFile.click();
+        }
 
-    inputFile.addEventListener('change', function (e) {
-        const file = e.target.files[0];
-        imageIcon = `<img src="<?= asset('img/assets/Coreldraw.png') ?>" alt="design" width="100" >`
-        fileName.innerHTML = file.name.slice(0, 20) + '...';
-        fileIcon.innerHTML = imageIcon;
-        
-    })
+        inputFile.addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            imageIcon = `<img src="<?= asset('img/assets/Coreldraw.png') ?>" alt="design" width="100" >`
+            fileName.innerHTML = file.name.slice(0, 20) + '...';
+            fileIcon.innerHTML = imageIcon;
+            
+        })
 
-    function resetImage() {
-        $('.file-info').find('img').remove();
-        fileName.innerHTML = '';
-    }
-</script>
+        function resetImage() {
+            $('.file-info').find('img').remove();
+            fileName.innerHTML = '';
+        }
+    </script>
 
-<script>
-    const inputFileMB = document.getElementById('file-mb');
-    const uploadButtonMB = document.getElementById('upload-button-mb');
-    const fileInfoMB = document.getElementById('file-info-mb');
-    const fileIconMB = document.getElementById('file-icon-mb');
-    const fileNameMB = document.getElementById('file-name-mb');
-    const resetMB = document.getElementById('reset-mb');
+    <script>
+        const inputFileMB = document.getElementById('file-mb');
+        const uploadButtonMB = document.getElementById('upload-button-mb');
+        const fileInfoMB = document.getElementById('file-info-mb');
+        const fileIconMB = document.getElementById('file-icon-mb');
+        const fileNameMB = document.getElementById('file-name-mb');
+        const resetMB = document.getElementById('reset-mb');
 
-    function uploadMB() {
-        inputFileMB.click();
-    }
+        function uploadMB() {
+            inputFileMB.click();
+        }
 
-    inputFileMB.addEventListener('change', function (e) {
-        const file = e.target.files[0];
-        imageIcon = `<img src="<?= asset('img/assets/Coreldraw.png') ?>" alt="design" width="100" >`
-        fileNameMB.innerHTML = file.name.slice(0, 20) + '...';
-        fileIconMB.innerHTML = imageIcon;
-        
-    })
+        inputFileMB.addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            imageIcon = `<img src="<?= asset('img/assets/Coreldraw.png') ?>" alt="design" width="100" >`
+            fileNameMB.innerHTML = file.name.slice(0, 20) + '...';
+            fileIconMB.innerHTML = imageIcon;
+            
+        })
 
-    function resetImage() {
-        $('.file-info-mb').find('img').remove();
-        fileNameMB.innerHTML = '';
-    }
-</script>
+        function resetImage() {
+            $('.file-info-mb').find('img').remove();
+            fileNameMB.innerHTML = '';
+        }
+    </script>
+<?php } ?>

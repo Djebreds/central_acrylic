@@ -7,7 +7,7 @@
     </nav>
     <div class="row position-relative">
         <?php foreach($data['orders'] as $order) : ?>
-            <?php if ($order['design_file'] != '' && $order['status'] == 'processing') { ?>
+            <?php if ($order['status'] == 'processing') { ?>
                 <div class="col-12 col-md-3">
                     <div class="card bg-danger bg-opacity-75 text-dark" style="border-radius: 15px;">
                         <div class="card-body text-center">

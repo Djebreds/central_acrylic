@@ -70,13 +70,17 @@
                             </li>
                             <li class="list-group-item"  style="border-radius: 0 20px 20px 0;">
                                 <dl class="row justify-content-center">
-                                    <dt class="col-sm-12"><h4 class="text-muted">Design & Edited File:</h4></dt>
-                                    <dd class="col-sm-9 text-center m-5">
-                                        <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                            <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
-                                            <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
-                                        </a>
-                                    </dd>
+                                    <?php if ($data['orders']['design_file'] != '') { ?>
+                                        <dt class="col-sm-12"><h4 class="text-muted">Design & Edited File:</h4></dt>
+                                        <dd class="col-sm-9 text-center m-5">
+                                            <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
+                                                <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
+                                                <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
+                                            </a>
+                                        </dd>
+                                    <?php } else { ?>
+                                        <dt class="col-sm-12" style="margin-left: 100px; margin-right: 100px"><h4 class="text-muted">Design & Edited File:</h4></dt>
+                                    <?php }  ?>
                                 </dl>
                             </li>
                         </ul>
@@ -148,13 +152,17 @@
                             </li>
                             <li class="list-group-item"  style="border-radius: 0 20px 20px 0;">
                                 <dl class="row justify-content-center">
-                                    <dt class="col-sm-12"><h4 class="text-muted">Design & Edited File:</h4></dt>
-                                    <dd class="col-sm-9 text-center m-5">
-                                        <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                            <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
-                                            <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
-                                        </a>
-                                    </dd>
+                                    <?php if ($data['orders']['design_file'] != '') { ?>
+                                        <dt class="col-sm-12"><h4 class="text-muted">Design & Edited File:</h4></dt>
+                                        <dd class="col-sm-9 text-center m-5">
+                                            <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
+                                                <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
+                                                <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
+                                            </a>
+                                        </dd>
+                                    <?php } else { ?>
+                                        <dt class="col-sm-12" style="margin-left: 100px; margin-right: 100px"><h4 class="text-muted">Design & Edited File:</h4></dt>
+                                    <?php }  ?>
                                 </dl>
                             </li>
                         </ul>
@@ -221,13 +229,17 @@
                                 </li>
                                 <li class="list-group-item"  style="border-radius: 0 20px 20px 0;">
                                     <dl class="row justify-content-center">
-                                        <dt class="col-sm-12"><h4 class="text-muted">Design & Edited File:</h4></dt>
-                                        <dd class="col-sm-9 text-center m-5">
-                                            <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                                <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
-                                                <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
-                                            </a>
-                                        </dd>
+                                        <?php if ($data['orders']['design_file'] != '') { ?>
+                                            <dt class="col-sm-12"><h4 class="text-muted">Design & Edited File:</h4></dt>
+                                            <dd class="col-sm-9 text-center m-5">
+                                                <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
+                                                    <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
+                                                    <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
+                                                </a>
+                                            </dd>
+                                        <?php } else { ?>
+                                            <dt class="col-sm-12" style="margin-left: 100px; margin-right: 100px"><h4 class="text-muted">Design & Edited File:</h4></dt>
+                                        <?php }  ?>
                                     </dl>
                                 </li>
                             </ul>
@@ -306,13 +318,17 @@
                         </li>
                         <li class="list-group-item"  style="border-radius: 0 20px 20px 0;">
                             <dl class="row justify-content-center">
-                                <dt class="col-sm-12"><h4 class="text-muted">Design & Edited File:</h4></dt>
-                                <dd class="col-sm-9 text-center m-5">
-                                    <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                        <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
-                                        <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
-                                    </a>
-                                </dd>
+                                <?php if ($data['orders']['design_file'] != '') { ?>
+                                    <dt class="col-sm-12"><h4 class="text-muted">Design & Edited File:</h4></dt>
+                                    <dd class="col-sm-9 text-center m-5">
+                                        <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
+                                            <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
+                                            <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
+                                        </a>
+                                    </dd>
+                                <?php } else { ?>
+                                    <dt class="col-sm-12" style="margin-left: 100px; margin-right: 100px"><h4 class="text-muted">Design & Edited File:</h4></dt>
+                                <?php }  ?>
                             </dl>
                         </li>
                     </ul>
@@ -390,13 +406,17 @@
                         </li>
                         <li class="list-group-item"  style="border-radius: 0 20px 20px 0;">
                             <dl class="row justify-content-center">
-                                <dt class="col-sm-12"><h4 class="text-muted">Design & Edited File:</h4></dt>
-                                <dd class="col-sm-9 text-center m-5">
-                                    <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                        <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
-                                        <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
-                                    </a>
-                                </dd>
+                                <?php if ($data['orders']['design_file'] != '') { ?>
+                                    <dt class="col-sm-12"><h4 class="text-muted">Design & Edited File:</h4></dt>
+                                    <dd class="col-sm-9 text-center m-5">
+                                        <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
+                                            <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
+                                            <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
+                                        </a>
+                                    </dd>
+                                <?php } else { ?>
+                                    <dt class="col-sm-12" style="margin-left: 100px; margin-right: 100px"><h4 class="text-muted">Design & Edited File:</h4></dt>
+                                <?php }  ?>
                             </dl>
                         </li>
                     </ul>
@@ -461,13 +481,17 @@
                     </li>
                     <li class="list-group-item"  style="border-radius: 0 20px 20px 0;">
                         <dl class="row justify-content-center">
-                            <dt class="col-sm-12"><h4 class="text-muted">Design & Edited File:</h4></dt>
-                            <dd class="col-sm-9 text-center m-5">
-                                <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                    <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
-                                    <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
-                                </a>
-                            </dd>
+                            <?php if ($data['orders']['design_file'] != '') { ?>
+                                <dt class="col-sm-12"><h4 class="text-muted">Design & Edited File:</h4></dt>
+                                <dd class="col-sm-9 text-center m-5">
+                                    <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
+                                        <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
+                                        <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
+                                    </a>
+                                </dd>
+                            <?php } else { ?>
+                                <dt class="col-sm-12" style="margin-left: 100px; margin-right: 100px"><h4 class="text-muted">Design & Edited File:</h4></dt>
+                            <?php }  ?>
                         </dl>
                     </li>
                 </ul>
@@ -567,12 +591,14 @@
                             </li>
                             <li class="list-group-item">
                                 <h4 class="text-muted">Design & Edited File</h4>
-                                <div class="text-center">
-                                    <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                        <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
-                                        <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
-                                    </a>
-                                </div>
+                                <?php if ($data['orders']['design_file'] != '') { ?>
+                                    <div class="text-center">
+                                        <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
+                                            <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
+                                            <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
+                                        </a>
+                                    </div>
+                                <?php } ?>
                             </li>
                         </ul>
                         <div class="text-end mt-4">
@@ -614,12 +640,14 @@
                             </li>
                             <li class="list-group-item">
                                 <h4 class="text-muted">Design & Edited File</h4>
-                                <div class="text-center">
-                                    <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                        <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
-                                        <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
-                                    </a>
-                                </div>
+                                <?php if ($data['orders']['design_file'] != '') { ?>
+                                    <div class="text-center">
+                                        <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
+                                            <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
+                                            <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
+                                        </a>
+                                    </div>
+                                <?php } ?>
                             </li>
                         </ul>
                         <div class="d-flex gap-2 justify-content-end my-3">
@@ -673,12 +701,14 @@
                         </li>
                         <li class="list-group-item">
                             <h4 class="text-muted">Design & Edited File</h4>
-                            <div class="text-center">
-                                <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                    <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
-                                    <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
-                                </a>
-                            </div>
+                            <?php if ($data['orders']['design_file'] != '') { ?>
+                                <div class="text-center">
+                                    <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
+                                        <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
+                                        <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
+                                    </a>
+                                </div>
+                            <?php } ?>
                         </li>
                     </ul>
                     <div class="d-flex gap-2 justify-content-end my-3">
@@ -731,12 +761,14 @@
                         </li>
                         <li class="list-group-item">
                             <h4 class="text-muted">Design & Edited File</h4>
-                            <div class="text-center">
-                                <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                    <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
-                                    <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
-                                </a>
-                            </div>
+                            <?php if ($data['orders']['design_file'] != '') { ?>
+                                <div class="text-center">
+                                    <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
+                                        <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
+                                        <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
+                                    </a>
+                                </div>
+                            <?php } ?>
                         </li>
                     </ul>
                 <?php } ?>
@@ -776,12 +808,14 @@
                     </li>
                     <li class="list-group-item">
                         <h4 class="text-muted">Design & Edited File</h4>
-                        <div class="text-center">
-                            <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
-                                <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
-                            </a>
-                        </div>
+                        <?php if ($data['orders']['design_file'] != '') { ?>
+                            <div class="text-center">
+                                <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
+                                    <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
+                                    <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
+                                </a>
+                            </div>
+                        <?php } ?>
                     </li>
                 </ul>
             <?php endif ?>

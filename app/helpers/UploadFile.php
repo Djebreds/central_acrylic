@@ -7,11 +7,6 @@ class UploadFile {
         $fileTmp = $file['file']['tmp_name'];
         $fileError = $file['file']['error'];
 
-        if ($fileError === 4) {
-            $_SESSION['file_error'] = "Masukkan file";
-            return false;
-        }
-
         $extension = pathinfo($fileName, PATHINFO_EXTENSION);
         $extension = strtolower($extension);
 
