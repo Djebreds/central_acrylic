@@ -222,14 +222,19 @@ class Orders extends Controller {
     public function processDivision() {
         $data['current_division'] = $_SESSION['current_division'];
         $data['id_staff'] = $_SESSION['id'];
+        $data['id_order_detail'] = $_POST['id_order_detail']; 
         $data['id'] = $_POST['id'];
-        $data['id_order_detail'] = $_POST['id_order_detail'];
-        $data['id_process'] = $this->model('MachineProcess')->getIDByName($this->divisionProcess($data['current_division']));
-        $data['time'] = $this->model('MachineProcess')->getTime($data['id_process']['id']);
+        $data['id_process'] = $this->model('Order')->getLatestProcess($data)['id_process'];
+        $getTime = $this->model('MachineProcess')->getIDByName($this->divisionProcess($data['current_division']));
+        $data['time'] = $this->model('MachineProcess')->getTime($getTime['id']);
         $data['estimate_complete'] = $data['time']['time'] * $_POST['qty'];
         $data['description'] = 'Pesanan telah diteruskan';
  
         if ($this->model('Order')->process($data)) {
+            if ($this->model('Order')->updateOrderStatus($data)) {
+                Flasher::setNotyf('Order telah diprocess', 'success');
+                return redirectTo('operator/index');    
+            }
             Flasher::setNotyf('Order telah diprocess', 'success');
             return redirectTo('operator/index');
         }
@@ -244,13 +249,13 @@ class Orders extends Controller {
         $data['id_staff'] = $_SESSION['id'];
         $data['id'] = $_POST['id'];
         $data['id_order_detail'] = $_POST['id_order_detail'];
-        $data['id_process'] = $this->model('MachineProcess')->getIDByName($this->divisionProcess($data['current_division']));
-        $data['time'] = $this->model('MachineProcess')->getTime($data['id_process']['id']);
+        $data['id_process'] = $this->model('MachineProcess')->getIDByName($this->divisionProcess($data['current_division']))['id'];
+        $data['time'] = $this->model('MachineProcess')->getTime($data['id_process']);
         $data['estimate_complete'] = $data['time']['time'] * $_POST['qty'];
         $data['description'] = 'Pesanan telah diteruskan';
  
         if ($this->model('Order')->process($data)) {
-            $this->completeOrderDivision();
+            $this->completeOrderDivisionDirect();
             
             Flasher::setNotyf('Order telah selesai', 'success');
             return redirectTo('operator/index');
@@ -306,13 +311,13 @@ class Orders extends Controller {
     //     return redirectTo('operator/index');
     // }
 
-    public function completeOrderDivision() {
+    public function completeOrderDivisionDirect() {
         $data['current_division'] = $_SESSION['current_division'];
         $data['id_staff'] = $_SESSION['id'];
         $data['id'] = $_POST['id'];
         $data['id_order_detail'] = $_POST['id_order_detail'];
-        $data['id_process'] = $this->model('MachineProcess')->getIDByName($this->divisionProcess($data['current_division']));
-        $data['time'] = $this->model('MachineProcess')->getTime($data['id_process']['id']);
+        $data['id_process'] = $this->model('MachineProcess')->getIDByName($this->divisionProcess($data['current_division']))['id'];
+        $data['time'] = $this->model('MachineProcess')->getTime($data['id_process']);
         $data['estimate_complete'] = $data['time']['time'] * $_POST['qty'];
         $data['description'] = 'Pesanan telah diteruskan';
         if ($this->model('Order')->updateOrderStatus($data)) {
@@ -337,6 +342,37 @@ class Orders extends Controller {
         }
         Flasher::setNotyf('Order gagal selesai', 'danger');
         return redirectTo('operator/index');
+    }
+
+    public function completeOrderDivision() {
+        $data['id_order_detail'] = $_POST['id_order_detail'];
+        $data['current_division'] = $_SESSION['current_division'];
+        $data['id_process'] = $this->model('MachineProcess')->getIDByName($this->divisionProcess($data['current_division']))['id'];
+        
+        if ($this->model('Order')->updateProcessOrderStatus($data)) {
+            $data['id'] = $_POST['id'];
+            $data['id_staff'] = $_SESSION['id'];
+            $data['division'] = $_SESSION['current_division'];
+            $data['estimate_complete'] = 0;
+            $data['description'] = 'Pesanan telah selesai';
+            $data['id_process'] = 10;
+            
+            if ($this->model('Order')->complete($data)) {
+            
+                if ($this->model('Order')->updateOrderStatusComplete($data)) {
+                    Flasher::setNotyf('Order telah selesai', 'success');
+                    return redirectTo('operator/index');
+                }
+                Flasher::setNotyf('Order telah selesai', 'success');
+                return redirectTo('operator/index');
+            }
+            Flasher::setNotyf('Order telah selesai', 'success');
+            return redirectTo('operator/index');
+        }
+
+        Flasher::setNotyf('Order gagal selesai', 'danger');
+        return redirectTo('operator/index');
+
     }
 
     public function delete($id) {

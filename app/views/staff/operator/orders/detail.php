@@ -55,7 +55,7 @@
                                                     Estimasi Selesai: <strong> <?= $data['orders'][0]['estimate_complete'] ?> Menit</strong>
                                                 </p>
                                                 <p class="mb-0 text-muted">
-                                                    Process: <strong><?= $order['process'] ?></strong>
+                                                    Process: <strong><?= divisionToProcess($order['division']) ?></strong>
                                                 </p>
                                                 <p class="mb-0 text-muted">
                                                     Keterangan: <strong><?= $order['note'] ?></strong>
@@ -65,7 +65,7 @@
                                                     Estimasi Selesai: <strong> <?= $order['estimate_complete'] ?> Menit</strong>
                                                 </p>
                                                 <p class="mb-0 text-muted">
-                                                    Process: <strong><?= $order['process'] ?></strong>
+                                                    Process: <strong><?= divisionToProcess($order['division']) ?></strong>
                                                 </p>
                                             <?php endif ?>
                                         <?php endif ?>
@@ -123,7 +123,7 @@
                                                     Estimasi Selesai: <strong> <?= $data['orders'][0]['estimate_complete'] ?> Menit</strong>
                                                 </p>
                                                 <p class="mb-0 text-muted">
-                                                    Process: <strong><?= $order['process'] ?></strong>
+                                                    Process: <strong><?= divisionToProcess($order['division']) ?></strong>
                                                 </p>
                                                 <p class="mb-0 text-muted">
                                                     Keterangan: <strong><?= $order['note'] ?></strong>
@@ -133,7 +133,7 @@
                                                     Estimasi Selesai: <strong> <?= $order['estimate_complete'] ?> Menit</strong>
                                                 </p>
                                                 <p class="mb-0 text-muted">
-                                                    Process: <strong><?= $order['process'] ?></strong>
+                                                    Process: <strong><?= divisionToProcess($order['division']) ?></strong>
                                                 </p>
                                             <?php endif ?>
                                         <?php } ?>

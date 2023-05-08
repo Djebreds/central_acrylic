@@ -100,6 +100,43 @@ function divisionProcess($division) {
     }
 }
 
+function divisionToProcess($division) {
+    switch ($division) {
+        case 'Admin' : 
+            return 'Design & Setting';
+            break;
+        case 'Kasir' :
+            return 'Konfirmasi';
+            break;
+        case 'Operator Mesin Cutting' : 
+            return 'Cutting';
+            break;
+        case 'Operator Mesin Print UV' :
+            return 'Print UV';
+            break;
+        case 'Operator Mesin Print Stiker' :
+            return 'Print Stiker';
+            break;
+        case 'Operator Mesin Grafir':
+            return 'Grafir';
+            break;
+        case 'Operator Mesin Bending & Welding' :
+            return 'Bending & Welding';
+            break;
+        case 'Operator Mesin 3D Print' :
+            return '3D Print';
+            break;
+        case 'Operator Assembly';
+            return 'Assembly / Finishing';
+            break;
+        default :
+            return 'Operator Mesin CNC';
+            break;
+    }
+}
+
+
+
 function routeDivision($division, $target) {
     switch($division) {
         case 'Admin' :

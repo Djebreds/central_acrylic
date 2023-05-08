@@ -316,7 +316,7 @@
     </div>
 </div>
 
-<?php if ($data['orders']['design_file'] != '') { ?>
+
     <script>
         const inputFile = document.getElementById('file');
         const uploadButton = document.getElementById('upload-button');
@@ -368,4 +368,3 @@
             fileNameMB.innerHTML = '';
         }
     </script>
-<?php } ?>

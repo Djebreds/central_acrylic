@@ -202,7 +202,8 @@ class Order extends Model {
     }
 
     public function show($code) {
-        $query = "SELECT orders.code, staffs.name as staff_name, order_details.note, order_status.division, orders.status AS status_order, order_details.description AS detail_description, order_status.description, orders.costumer_name, process_machines.name AS process, order_status.estimate_complete, products.name, order_details.qty
+        $query = "SELECT orders.code, staffs.name as staff_name, order_details.note, order_status.division, orders.status AS status_order, order_details.description AS detail_description, order_status.description, orders.costumer_name, process_machines.name AS process, 
+                order_status.estimate_complete, products.name, order_details.qty, order_status.division
                  FROM orders
                  INNER JOIN order_details ON order_details.id_order = orders.id
                  INNER JOIN order_status ON order_status.id_order_detail = order_details.id
@@ -455,10 +456,21 @@ class Order extends Model {
         $this->db->query($query);
         $this->db->bind('id_order_detail', $data['id_order_detail']);
         $this->db->bind('id_staff', $data['id_staff']);
-        $this->db->bind('id_process', $data['id_process']['id']);
+        $this->db->bind('id_process', $data['id_process']);
         $this->db->bind('division', $data['current_division']);
         $this->db->bind('estimate_complete', $data['estimate_complete']);
         $this->db->bind('description', 'Pesanan telah diteruskan');
+        $this->db->execute();
+
+        return $this->db->rowCount();
+    }
+
+    public function updateProcessOrderStatus($data) {
+        $query = "UPDATE order_status SET id_process = :id_process, updated_at = CURRENT_TIMESTAMP() WHERE id_order_detail = :id_order_detail AND updated_at = (SELECT * FROM (SELECT updated_at FROM order_status WHERE id_order_detail = :id_order_detail ORDER BY updated_at DESC LIMIT 1) AS temp)";
+
+        $this->db->query($query);
+        $this->db->bind('id_process', $data['id_process']);
+        $this->db->bind('id_order_detail', $data['id_order_detail']);
         $this->db->execute();
 
         return $this->db->rowCount();
@@ -504,6 +516,17 @@ class Order extends Model {
         $this->db->execute();
 
         return $this->db->rowCount();
+    }
+
+    public function getLatestProcess($data) {
+        $query = "SELECT id_process FROM order_status
+                 WHERE id_order_detail = :id_order_detail
+                 ORDER BY updated_at DESC";
+
+        $this->db->query($query);
+        $this->db->bind('id_order_detail', $data['id_order_detail']);
+        
+        return $this->db->first();
     }
 
 }
