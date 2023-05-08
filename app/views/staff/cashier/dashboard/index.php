@@ -51,6 +51,7 @@
                             </div>
                         </div>
                     </div>
+                    <?php imageIcon('dadang.jbr') ?>
                     <div class="mb-3">
                         <label for="description">Keterangan</label>
                         <textarea name="description" id="description" cols="20" rows="7" class="form-control" placeholder="Masukkan keterangan" required></textarea>
@@ -79,7 +80,39 @@
 
     inputFile.addEventListener('change', function (e) {
         const file = e.target.files[0];
-        imageIcon = `<img src="<?= asset('img/assets/PDF.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+        const extension = file.name.split('.').pop();
+        if (extension == 'doc' || extension == 'docx') {
+            imageIcon = `<img src="<?= asset('img/assets/doc.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+        } else if (extension == 'jpg' || extension == 'jpeg') {
+            imageIcon = `<img src="<?= asset('img/assets/jpg.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+        } else if (extension == 'pdf') {
+            imageIcon = `<img src="<?= asset('img/assets/pdf-2.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+        } else if (extension == 'ps') {
+            imageIcon = `<img src="<?= asset('img/assets/ps.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+        } else if (extension == 'psd') {
+            imageIcon = `<img src="<?= asset('img/assets/psd.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+        } else if (extension == 'png') {
+            imageIcon = `<img src="<?= asset('img/assets/png.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+        } else if (extension == 'cdr') {
+            imageIcon = `<img src="<?= asset('img/assets/cdr.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+        } else if (extension == '3ds') {
+            imageIcon = `<img src="<?= asset('img/assets/3ds.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+        } else if (extension == 'ai') {
+            imageIcon = `<img src="<?= asset('img/assets/ai.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+        } else if (extension == 'cad') {
+            imageIcon = `<img src="<?= asset('img/assets/cad.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+        } else if (extension == 'bmp') {
+            imageIcon = `<img src="<?= asset('img/assets/bmp.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+        } else if (extension == 'eps') {
+            imageIcon = `<img src="<?= asset('img/assets/eps.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+        } else if (extension == 'svg') {
+            imageIcon = `<img src="<?= asset('img/assets/svg.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+        } else if (extension == 'tif') {
+            imageIcon = `<img src="<?= asset('img/assets/tif.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+        } else {
+            imageIcon = `<img src="<?= asset('img/assets/file.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+        }
+
         fileName.innerHTML = file.name.slice(0, 20) + '...';
         fileIcon.innerHTML = imageIcon;
         

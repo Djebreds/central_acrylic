@@ -41,7 +41,7 @@ class Order extends Model {
 
     public function getOrderProduct() {
         $query = "SELECT
-            order_details.order_file, order_details.design_file, orders.status, products.name, order_details.design_file, orders.code, orders.created_at FROM orders
+            order_details.order_file, orders.status, products.name, order_details.design_file, orders.code, orders.created_at FROM orders
             INNER JOIN order_details ON order_details.id_order = orders.id
             INNER JOIN products ON products.id = order_details.id_product
             WHERE orders.status != 'completed'

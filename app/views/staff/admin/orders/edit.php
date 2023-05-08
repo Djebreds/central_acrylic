@@ -59,7 +59,7 @@
                                 <dt class="col-sm-12"><h4 class="text-muted">File Pesanan:</h4></dt>
                                 <dd class="col-sm-9 text-center m-5">
                                     <a href="<?= asset('uploaded/' . $data['orders']['order_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                        <img src="<?= asset('img/assets/PDF.png') ?>" width="150" alt="file">
+                                        <img src="<?= imageIcon($data['orders']['order_file']) ?>" width="150" alt="file">
                                         <p class="mt-2"><?= $data['orders']['order_file']; ?></p>
                                     </a>
                                 </dd>
@@ -161,7 +161,7 @@
                             <dt class="col-sm-12"><h4 class="text-muted">File Pesanan:</h4></dt>
                             <dd class="col-sm-9 text-center m-5">
                                 <a href="<?= asset('uploaded/' . $data['orders']['order_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                    <img src="<?= asset('img/assets/PDF.png') ?>" width="150" alt="file">
+                                    <img src="<?= imageIcon($data['orders']['order_file']) ?>" width="150" alt="file">
                                     <p class="mt-2"><?= $data['orders']['order_file']; ?></p>
                                 </a>
                             </dd>
@@ -173,7 +173,7 @@
                             <dt class="col-sm-12"><h4 class="text-muted">Design & Edited File:</h4></dt>
                                 <dd class="col-sm-9 text-center m-5">
                                     <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                        <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
+                                        <img src="<?= imageIcon($data['orders']['design_file']) ?>" width="150" alt="file">
                                         <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
                                     </a>
                                 </dd>
@@ -221,13 +221,13 @@
                             <h4 class="text-muted">File Pesanan</h4>
                             <div class="text-center">
                                 <a href="<?= asset('uploaded/' . $data['orders']['order_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                    <img src="<?= asset('img/assets/PDF.png') ?>" width="150" alt="file">
+                                    <img src="<?= imageIcon($data['orders']['order_file']) ?>" width="150" alt="file">
                                     <p class="mt-2"><?= $data['orders']['order_file']; ?></p>
                                 </a>
                             </div>
                         </li>
                         <li class="list-group-item">
-                            <h4 class="text-muted">Keterangan</h4>
+                            <h4 class="text-muted">Design & Edited File</h4>
                             <input type="hidden" name="code" value="<?= $data['orders']['order_code'] ?>">
                             <input type="file" class="form-control opacity-0" name="file" id="file-mb" multiple="false">
                             <input type="hidden" name="process_names" value="<?= $data['orders']['process_names'] ?>">
@@ -291,7 +291,7 @@
                         <h4 class="text-muted">File Pesanan</h4>
                         <div class="text-center">
                             <a href="<?= asset('uploaded/' . $data['orders']['order_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                <img src="<?= asset('img/assets/PDF.png') ?>" width="150" alt="file">
+                                <img src="<?= imageIcon($data['orders']['order_file']) ?>" width="150" alt="file">
                                 <p class="mt-2"><?= $data['orders']['order_file']; ?></p>
                             </a>
                         </div>
@@ -301,7 +301,7 @@
                         <?php if ($data['orders']['design_file'] != '') { ?>
                             <div class="text-center">
                                 <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                    <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
+                                    <img src="<?= imageIcon($data['orders']['design_file']) ?>" width="150" alt="file">
                                     <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
                                 </a>
                             </div>
@@ -331,7 +331,40 @@
 
         inputFile.addEventListener('change', function (e) {
             const file = e.target.files[0];
-            imageIcon = `<img src="<?= asset('img/assets/Coreldraw.png') ?>" alt="design" width="100" >`
+            const extension = file.name.split('.').pop();
+        
+            if (extension == 'doc' || extension == 'docx') {
+                imageIcon = `<img src="<?= asset('img/assets/doc.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+            } else if (extension == 'jpg' || extension == 'jpeg') {
+                imageIcon = `<img src="<?= asset('img/assets/jpg.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+            } else if (extension == 'pdf') {
+                imageIcon = `<img src="<?= asset('img/assets/pdf-2.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+            } else if (extension == 'ps') {
+                imageIcon = `<img src="<?= asset('img/assets/ps.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+            } else if (extension == 'psd') {
+                imageIcon = `<img src="<?= asset('img/assets/psd.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+            } else if (extension == 'png') {
+                imageIcon = `<img src="<?= asset('img/assets/png.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+            } else if (extension == 'cdr') {
+                imageIcon = `<img src="<?= asset('img/assets/cdr.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+            } else if (extension == '3ds') {
+                imageIcon = `<img src="<?= asset('img/assets/3ds.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+            } else if (extension == 'ai') {
+                imageIcon = `<img src="<?= asset('img/assets/ai.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+            } else if (extension == 'cad') {
+                imageIcon = `<img src="<?= asset('img/assets/cad.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+            } else if (extension == 'bmp') {
+                imageIcon = `<img src="<?= asset('img/assets/bmp.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+            } else if (extension == 'eps') {
+                imageIcon = `<img src="<?= asset('img/assets/eps.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+            } else if (extension == 'svg') {
+                imageIcon = `<img src="<?= asset('img/assets/svg.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+            } else if (extension == 'tif') {
+                imageIcon = `<img src="<?= asset('img/assets/tif.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+            } else {
+                imageIcon = `<img src="<?= asset('img/assets/file.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+            }
+
             fileName.innerHTML = file.name.slice(0, 20) + '...';
             fileIcon.innerHTML = imageIcon;
             
@@ -357,7 +390,40 @@
 
         inputFileMB.addEventListener('change', function (e) {
             const file = e.target.files[0];
-            imageIcon = `<img src="<?= asset('img/assets/Coreldraw.png') ?>" alt="design" width="100" >`
+            const extension = file.name.split('.').pop();
+        
+            if (extension == 'doc' || extension == 'docx') {
+                imageIcon = `<img src="<?= asset('img/assets/doc.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+            } else if (extension == 'jpg' || extension == 'jpeg') {
+                imageIcon = `<img src="<?= asset('img/assets/jpg.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+            } else if (extension == 'pdf') {
+                imageIcon = `<img src="<?= asset('img/assets/pdf-2.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+            } else if (extension == 'ps') {
+                imageIcon = `<img src="<?= asset('img/assets/ps.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+            } else if (extension == 'psd') {
+                imageIcon = `<img src="<?= asset('img/assets/psd.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+            } else if (extension == 'png') {
+                imageIcon = `<img src="<?= asset('img/assets/png.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+            } else if (extension == 'cdr') {
+                imageIcon = `<img src="<?= asset('img/assets/cdr.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+            } else if (extension == '3ds') {
+                imageIcon = `<img src="<?= asset('img/assets/3ds.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+            } else if (extension == 'ai') {
+                imageIcon = `<img src="<?= asset('img/assets/ai.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+            } else if (extension == 'cad') {
+                imageIcon = `<img src="<?= asset('img/assets/cad.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+            } else if (extension == 'bmp') {
+                imageIcon = `<img src="<?= asset('img/assets/bmp.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+            } else if (extension == 'eps') {
+                imageIcon = `<img src="<?= asset('img/assets/eps.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+            } else if (extension == 'svg') {
+                imageIcon = `<img src="<?= asset('img/assets/svg.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+            } else if (extension == 'tif') {
+                imageIcon = `<img src="<?= asset('img/assets/tif.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+            } else {
+                imageIcon = `<img src="<?= asset('img/assets/file.png') ?>" class="pdf-image" alt="PDF" width="100" >`
+            }
+
             fileNameMB.innerHTML = file.name.slice(0, 20) + '...';
             fileIconMB.innerHTML = imageIcon;
             

@@ -157,3 +157,40 @@ function routeDivision($division, $target) {
             break;
     } 
 }
+
+
+function imageIcon($fileName) {
+    $extension = pathinfo($fileName, PATHINFO_EXTENSION);
+
+    if ($extension == 'doc' || $extension == 'docx') {
+        return asset('img/assets/doc.png');
+    } else if ($extension == 'jpg' || $extension == 'jpeg') {
+        return asset('img/assets/jpg.png');
+    } else if ($extension == 'pdf') {
+        return asset('img/assets/pdf-2.png');
+    } else if ($extension == 'ps') {
+        return asset('img/assets/ps.png');
+    } else if ($extension == 'psd') {
+        return asset('img/assets/psd.png');
+    } else if ($extension == 'png') {
+        return asset('img/assets/png.png');
+    } else if ($extension == 'cdr') {
+        return asset('img/assets/cdr.png');
+    } else if ($extension == '3ds') {
+        return asset('img/assets/3ds.png');
+    } else if ($extension == 'ai') {
+        return asset('img/assets/ai.png');
+    } else if ($extension == 'cad') {
+        return asset('img/assets/cad.png');
+    } else if ($extension == 'bmp') {
+        return asset('img/assets/bmp.png');
+    } else if ($extension == 'eps') {
+        return asset('img/assets/eps.png');
+    } else if ($extension == 'svg') {
+        return asset('img/assets/svg.png');
+    } else if ($extension == 'tif') {
+        return asset('img/assets/tif.png');
+    } else {
+        return asset('img/assets/file.png');
+    }
+}

@@ -62,7 +62,7 @@
                                     <dt class="col-sm-12"><h4 class="text-muted">File Pesanan:</h4></dt>
                                     <dd class="col-sm-9 text-center m-5">
                                         <a href="<?= asset('uploaded/' . $data['orders']['order_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                            <img src="<?= asset('img/assets/PDF.png') ?>" width="150" alt="file">
+                                            <img src="<?= imageIcon($data['orders']['order_file']) ?>" width="150" alt="file">
                                             <p class="mt-2"><?= $data['orders']['order_file']; ?></p>
                                         </a>
                                     </dd>
@@ -74,7 +74,7 @@
                                         <dt class="col-sm-12"><h4 class="text-muted">Design & Edited File:</h4></dt>
                                         <dd class="col-sm-9 text-center m-5">
                                             <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                                <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
+                                                <img src="<?= imageIcon($data['orders']['design_file']) ?>" width="150" alt="file">
                                                 <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
                                             </a>
                                         </dd>
@@ -144,7 +144,7 @@
                                     <dt class="col-sm-12"><h4 class="text-muted">File Pesanan:</h4></dt>
                                     <dd class="col-sm-9 text-center m-5">
                                         <a href="<?= asset('uploaded/' . $data['orders']['order_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                            <img src="<?= asset('img/assets/PDF.png') ?>" width="150" alt="file">
+                                            <img src="<?= imageIcon($data['orders']['order_file']) ?>" width="150" alt="file">
                                             <p class="mt-2"><?= $data['orders']['order_file']; ?></p>
                                         </a>
                                     </dd>
@@ -156,7 +156,7 @@
                                         <dt class="col-sm-12"><h4 class="text-muted">Design & Edited File:</h4></dt>
                                         <dd class="col-sm-9 text-center m-5">
                                             <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                                <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
+                                                <img src="<?= imageIcon($data['orders']['design_file']) ?>" width="150" alt="file">
                                                 <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
                                             </a>
                                         </dd>
@@ -221,7 +221,7 @@
                                         <dt class="col-sm-12"><h4 class="text-muted">File Pesanan:</h4></dt>
                                         <dd class="col-sm-9 text-center m-5">
                                             <a href="<?= asset('uploaded/' . $data['orders']['order_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                                <img src="<?= asset('img/assets/PDF.png') ?>" width="150" alt="file">
+                                                <img src="<?= imageIcon($data['orders']['order_file']) ?>" width="150" alt="file">
                                                 <p class="mt-2"><?= $data['orders']['order_file']; ?></p>
                                             </a>
                                         </dd>
@@ -233,7 +233,7 @@
                                             <dt class="col-sm-12"><h4 class="text-muted">Design & Edited File:</h4></dt>
                                             <dd class="col-sm-9 text-center m-5">
                                                 <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                                    <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
+                                                    <img src="<?= imageIcon($data['orders']['design_file']) ?>" width="150" alt="file">
                                                     <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
                                                 </a>
                                             </dd>
@@ -310,7 +310,7 @@
                                 <dt class="col-sm-12"><h4 class="text-muted">File Pesanan:</h4></dt>
                                 <dd class="col-sm-9 text-center m-5">
                                     <a href="<?= asset('uploaded/' . $data['orders']['order_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                        <img src="<?= asset('img/assets/PDF.png') ?>" width="150" alt="file">
+                                        <img src="<?= imageIcon($data['orders']['order_file']) ?>" width="150" alt="file">
                                         <p class="mt-2"><?= $data['orders']['order_file']; ?></p>
                                     </a>
                                 </dd>
@@ -322,7 +322,7 @@
                                     <dt class="col-sm-12"><h4 class="text-muted">Design & Edited File:</h4></dt>
                                     <dd class="col-sm-9 text-center m-5">
                                         <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                            <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
+                                            <img src="<?= imageIcon($data['orders']['design_file']) ?>" width="150" alt="file">
                                             <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
                                         </a>
                                     </dd>
@@ -398,7 +398,7 @@
                                 <dt class="col-sm-12"><h4 class="text-muted">File Pesanan:</h4></dt>
                                 <dd class="col-sm-9 text-center m-5">
                                     <a href="<?= asset('uploaded/' . $data['orders']['order_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                        <img src="<?= asset('img/assets/PDF.png') ?>" width="150" alt="file">
+                                        <img src="<?= imageIcon($data['orders']['order_file']) ?>" width="150" alt="file">
                                         <p class="mt-2"><?= $data['orders']['order_file']; ?></p>
                                     </a>
                                 </dd>
@@ -410,7 +410,7 @@
                                     <dt class="col-sm-12"><h4 class="text-muted">Design & Edited File:</h4></dt>
                                     <dd class="col-sm-9 text-center m-5">
                                         <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                            <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
+                                            <img src="<?= imageIcon($data['orders']['design_file']) ?>" width="150" alt="file">
                                             <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
                                         </a>
                                     </dd>
@@ -473,7 +473,7 @@
                             <dt class="col-sm-12"><h4 class="text-muted">File Pesanan:</h4></dt>
                             <dd class="col-sm-9 text-center m-5">
                                 <a href="<?= asset('uploaded/' . $data['orders']['order_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                    <img src="<?= asset('img/assets/PDF.png') ?>" width="150" alt="file">
+                                    <img src="<?= imageIcon($data['orders']['order_file']) ?>" width="150" alt="file">
                                     <p class="mt-2"><?= $data['orders']['order_file']; ?></p>
                                 </a>
                             </dd>
@@ -485,7 +485,7 @@
                                 <dt class="col-sm-12"><h4 class="text-muted">Design & Edited File:</h4></dt>
                                 <dd class="col-sm-9 text-center m-5">
                                     <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                        <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
+                                        <img src="<?= imageIcon($data['orders']['design_file']) ?>" width="150" alt="file">
                                         <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
                                     </a>
                                 </dd>
@@ -532,7 +532,7 @@
                                 <h4 class="text-muted">File Pesanan</h4>
                                 <div class="text-center">
                                     <a href="<?= asset('uploaded/' . $data['orders']['order_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                        <img src="<?= asset('img/assets/PDF.png') ?>" width="150" alt="file">
+                                        <img src="<?= imageIcon($data['orders']['order_file']) ?>" width="150" alt="file">
                                         <p class="mt-2"><?= $data['orders']['order_file']; ?></p>
                                     </a>
                                 </div>
@@ -541,7 +541,7 @@
                                 <h4 class="text-muted">Design & Edited File</h4>
                                 <div class="text-center">
                                     <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                        <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
+                                        <img src="<?= imageIcon($data['orders']['design_file']) ?>" width="150" alt="file">
                                         <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
                                     </a>
                                 </div>
@@ -584,7 +584,7 @@
                                 <h4 class="text-muted">File Pesanan</h4>
                                 <div class="text-center">
                                     <a href="<?= asset('uploaded/' . $data['orders']['order_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                        <img src="<?= asset('img/assets/PDF.png') ?>" width="150" alt="file">
+                                        <img src="<?= imageIcon($data['orders']['order_file']) ?>" width="150" alt="file">
                                         <p class="mt-2"><?= $data['orders']['order_file']; ?></p>
                                     </a>
                                 </div>
@@ -594,7 +594,7 @@
                                 <?php if ($data['orders']['design_file'] != '') { ?>
                                     <div class="text-center">
                                         <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                            <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
+                                            <img src="<?= imageIcon($data['orders']['design_file']) ?>" width="150" alt="file">
                                             <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
                                         </a>
                                     </div>
@@ -633,7 +633,7 @@
                                 <h4 class="text-muted">File Pesanan</h4>
                                 <div class="text-center">
                                     <a href="<?= asset('uploaded/' . $data['orders']['order_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                        <img src="<?= asset('img/assets/PDF.png') ?>" width="150" alt="file">
+                                        <img src="<?= imageIcon($data['orders']['order_file']) ?>" width="150" alt="file">
                                         <p class="mt-2"><?= $data['orders']['order_file']; ?></p>
                                     </a>
                                 </div>
@@ -643,7 +643,7 @@
                                 <?php if ($data['orders']['design_file'] != '') { ?>
                                     <div class="text-center">
                                         <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                            <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
+                                            <img src="<?= imageIcon($data['orders']['design_file']) ?>" width="150" alt="file">
                                             <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
                                         </a>
                                     </div>
@@ -694,7 +694,7 @@
                             <h4 class="text-muted">File Pesanan</h4>
                             <div class="text-center">
                                 <a href="<?= asset('uploaded/' . $data['orders']['order_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                    <img src="<?= asset('img/assets/PDF.png') ?>" width="150" alt="file">
+                                    <img src="<?= imageIcon($data['orders']['order_file']) ?>" width="150" alt="file">
                                     <p class="mt-2"><?= $data['orders']['order_file']; ?></p>
                                 </a>
                             </div>
@@ -704,7 +704,7 @@
                             <?php if ($data['orders']['design_file'] != '') { ?>
                                 <div class="text-center">
                                     <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                        <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
+                                        <img src="<?= imageIcon($data['orders']['design_file']) ?>" width="150" alt="file">
                                         <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
                                     </a>
                                 </div>
@@ -754,7 +754,7 @@
                             <h4 class="text-muted">File Pesanan</h4>
                             <div class="text-center">
                                 <a href="<?= asset('uploaded/' . $data['orders']['order_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                    <img src="<?= asset('img/assets/PDF.png') ?>" width="150" alt="file">
+                                    <img src="<?= imageIcon($data['orders']['order_file']) ?>" width="150" alt="file">
                                     <p class="mt-2"><?= $data['orders']['order_file']; ?></p>
                                 </a>
                             </div>
@@ -764,7 +764,7 @@
                             <?php if ($data['orders']['design_file'] != '') { ?>
                                 <div class="text-center">
                                     <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                        <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
+                                        <img src="<?= imageIcon($data['orders']['design_file']) ?>" width="150" alt="file">
                                         <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
                                     </a>
                                 </div>
@@ -801,7 +801,7 @@
                         <h4 class="text-muted">File Pesanan</h4>
                         <div class="text-center">
                             <a href="<?= asset('uploaded/' . $data['orders']['order_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                <img src="<?= asset('img/assets/PDF.png') ?>" width="150" alt="file">
+                                <img src="<?= imageIcon($data['orders']['order_file']) ?>" width="150" alt="file">
                                 <p class="mt-2"><?= $data['orders']['order_file']; ?></p>
                             </a>
                         </div>
@@ -811,7 +811,7 @@
                         <?php if ($data['orders']['design_file'] != '') { ?>
                             <div class="text-center">
                                 <a href="<?= asset('uploaded/' . $data['orders']['design_file']) ?>" onclick="return confirm('Ingin menyimpan file ini?')" download>
-                                    <img src="<?= asset('img/assets/Coreldraw.png') ?>" width="140" alt="file">
+                                    <img src="<?= imageIcon($data['orders']['design_file']) ?>" width="150" alt="file">
                                     <p class="mt-2"><?= $data['orders']['design_file']; ?></p>
                                 </a>
                             </div>
