@@ -70,7 +70,25 @@ class Order extends Model {
         $this->db->query($query);
 
         return $this->db->all();
-        
+    }
+
+    public function getOrderToday() {
+        $query =  "SELECT 
+        orders.code, staffs.name, process_machines.name AS process, order_details.order_file, latest_status.updated_at
+        FROM orders
+            INNER JOIN order_details ON order_details.id_order = orders.id
+            INNER JOIN order_status ON order_status.id_order_detail = order_details.id
+            INNER JOIN process_machines ON process_machines.id = order_status.id_process
+            INNER JOIN staffs ON staffs.id = order_status.id_staff
+            INNER JOIN (SELECT id_order_detail, MAX(updated_at) AS updated_at FROM order_status
+                        GROUP BY id_order_detail)
+                        latest_status ON order_status.id_order_detail = latest_status.id_order_detail AND order_status.updated_at = latest_status.updated_at
+            WHERE DATE(orders.created_at) = CURDATE()
+            ORDER BY orders.code";
+
+        $this->db->query($query);
+
+        return $this->db->all();
     }
 
     public function getProcessing() {
@@ -203,7 +221,7 @@ class Order extends Model {
 
     public function show($code) {
         $query = "SELECT orders.code, staffs.name as staff_name, order_details.note, order_status.division, orders.status AS status_order, order_details.description AS detail_description, order_status.description, orders.costumer_name, process_machines.name AS process, 
-                order_status.estimate_complete, products.name, order_details.qty, order_status.division
+                order_status.estimate_complete, products.name, order_details.qty, order_status.division, orders.updated_at AS finish_at
                  FROM orders
                  INNER JOIN order_details ON order_details.id_order = orders.id
                  INNER JOIN order_status ON order_status.id_order_detail = order_details.id

@@ -474,8 +474,8 @@ class Orders extends Controller {
         $costumer = explode(' ', Validate::validates($_POST['costumer_name']));
         
         // hardcoded 
-        // the order number is get from 1 month
-        $current_order = (count($this->model('Order')->getOrderByMonth()) + 1) < 10 ? ('0' . count($this->model('Order')->get()) + 1) : (count($this->model('Order')->get()) + 1); 
+        // the order number is get from current date
+        $current_order = (count($this->model('Order')->getOrderToday()) + 1) < 10 ? ('0' . count($this->model('Order')->getOrderToday()) + 1) : (count($this->model('Order')->getOrderToday()) + 1); 
         
         $orderCode = $productCode['code'] . "-" . $machineCode . "-" . $current_order . $current_date . "-" . strtolower($costumer[0]);
 

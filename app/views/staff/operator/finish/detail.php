@@ -104,6 +104,9 @@
                                             <p class="mb-0 text-muted">
                                                 Jumlah: <strong><?= $order['qty'] ?> Set</strong>
                                             </p>
+                                            <p class="mb-0 text-muted">
+                                                Selesai pada: <strong><?= date('d-m-y H:i:s', strtotime($order['finish_at'])) ?> Set</strong>
+                                            </p>
                                         <?php } else { ?>
                                             <p class="my-2 fs-4"><strong><?= $order['description'] . " Ke " . $order['division'] . ' (' . $order['staff_name'] .  ') ' ?></strong></p>
                                             <p class="mb-0 text-muted">

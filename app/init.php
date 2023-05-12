@@ -1,4 +1,5 @@
 <?php 
+error_reporting(0);
 
 require_once 'config/environment.php';
 require_once 'helpers/routing.php';
